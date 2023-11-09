@@ -1,8 +1,7 @@
 package juegocartas;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import javax.swing.*;
 
 
@@ -53,9 +52,9 @@ public class JuegoCartas extends JFrame{
            
         
         
-        String rutaCarta1 = "C:\\Users\\Practica\\Documents\\NetBeansProjects\\JuegoCartas\\src\\juegocartas\\imagenes\\imagen1.png";
+        String rutaCarta1 = "C:\\Users\\Nicolas\\Documents\\Code\\Intellij\\juegodecartaslindo\\JuegoCartas\\src\\juegocartas\\imagenes\\imagen1.png";
         
-        String rutaCarta2 = "C:\\Users\\Practica\\Documents\\NetBeansProjects\\JuegoCartas\\src\\juegocartas\\imagenes\\imagen2.png";
+        String rutaCarta2 = "C:\\Users\\Nicolas\\Documents\\Code\\Intellij\\juegodecartaslindo\\JuegoCartas\\src\\juegocartas\\imagenes\\imagen2.png";
         
         JButton carta = new ImageButton("Num random: " + promedio1, rutaCarta1);
         
