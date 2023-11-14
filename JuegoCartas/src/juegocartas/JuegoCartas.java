@@ -2,6 +2,7 @@ package juegocartas;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Arrays;
 import javax.swing.*;
 
 
@@ -9,8 +10,7 @@ import javax.swing.*;
  *
  * -- Fusion de cartas, boton fusionar, 2 checkbutton para seleccionar 2 cartas y luego sumar el promedio de las 2
  * -- Intentar ponerlo en la interfaz linda
- * -- Hacer un contador, que a partir de cada ronda que gane algun jugador, le sume el puntaje y mostrarlo al final
- *    si gano o perdio
+ * -- Poner en la interfaz grafica el puntaje
  *
  * */
 
@@ -38,15 +38,12 @@ public class JuegoCartas extends JFrame {
         setSize(1024, 768);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-
         JPanel panel = new JPanel();
 
         // Promedios de las cartas
         int promedio1 = (int) (Math.random() * 320 + 280);
         int promedio2 = (int) (Math.random() * 320 + 280);
         int promedio3 = (int) (Math.random() * 320 + 280);
-
-
 
 
         // Tamano de las cartas
@@ -61,28 +58,31 @@ public class JuegoCartas extends JFrame {
         String rutaCarta3 = "C:\\Users\\Nicolas\\Documents\\Code\\Intellij\\juegodecartaslindo\\JuegoCartas\\src\\juegocartas\\imagenes\\imagen3.png";
 
         // El titulo del juego
-        JLabel titulo = new JLabel("Inicio del juego.");
+        JLabel titulo = new JLabel("|Inicio del juego|");
 
 
-        JLabel puntajeComputador = new JLabel(".");
-        final JLabel[] puntajeJugador = {new JLabel(".")};
+        // Los puntajes
+        final int[] puntajeCompu = {0};
+        final int[] puntajeJug = {0};
 
-        JLabel tituloCartaCompu = new JLabel("La carta con el texto verde es el computador");
-        JLabel tempor = new JLabel("....");
 
+        JLabel puntajeComputador = new JLabel("Puntaje del Computador: ");
+        JLabel puntajeJugador = new JLabel("Puntaje del Jugador: ");
+
+
+        JLabel tempor = new JLabel("Temporizador: ");
+
+
+        // Boton de fusionar
+        JButton fusionar = new JButton("Fusionar!");
+        
 
         JButton cartaDelComputador = new ImageButton("Num random: " + promedio1, rutaCarta1);
-
-        JButton fusionar = new JButton("Fusionar!");
 
         // El checkbox de la seleccion de la carta
         JCheckBox checkbox = new JCheckBox(" ");
         checkbox.setVisible(false);
         panel.add(checkbox);
-
-        // Los puntajes
-        final int[] puntajeCompu = {0};
-        final int[] puntajeJug = {0};
 
 
         // Primer carta del jugador
@@ -106,7 +106,7 @@ public class JuegoCartas extends JFrame {
                         try {
                             tempor.setText(String.valueOf(i));
                             System.out.println(i);
-                            Thread.sleep(1000);
+                            Thread.sleep(500);
                         } catch (InterruptedException ex) {
                             throw new RuntimeException(ex);
                         }
@@ -118,6 +118,9 @@ public class JuegoCartas extends JFrame {
                         JLabel res = new JLabel("Gano el computador");
                         puntajeCompu[0] += 50;
                         System.out.println(puntajeCompu[0]);
+                        puntajeComputador.setText("Puntaje del Computador: " + Arrays.toString(puntajeCompu));
+                        panel.add(puntajeComputador);
+
 
                         res.setHorizontalAlignment(SwingConstants.CENTER);
                         res.setOpaque(true);
@@ -131,6 +134,9 @@ public class JuegoCartas extends JFrame {
                         JLabel res = new JLabel("Gano la carta del jugador");
                         puntajeJug[0] += 50;
                         System.out.println(puntajeJug[0]);
+                        puntajeJugador.setText("Puntaje del Jugador: " + Arrays.toString(puntajeJug));
+
+                        panel.add(puntajeJugador);
 
                         res.setHorizontalAlignment(SwingConstants.CENTER);
                         res.setOpaque(true);
@@ -173,7 +179,7 @@ public class JuegoCartas extends JFrame {
                         try {
                             tempor.setText(String.valueOf(i));
                             System.out.println(i);
-                            Thread.sleep(1000);
+                            Thread.sleep(500);
                         } catch (InterruptedException ex) {
                             throw new RuntimeException(ex);
                         }
@@ -185,6 +191,8 @@ public class JuegoCartas extends JFrame {
                         JLabel res = new JLabel("Gano el computador");
                         puntajeCompu[0] += 50;
                         System.out.println(puntajeCompu[0]);
+                        puntajeComputador.setText("Puntaje del Computador: " + Arrays.toString(puntajeCompu));
+                        panel.add(puntajeComputador);
 
                         res.setHorizontalAlignment(SwingConstants.CENTER);
                         res.setOpaque(true);
@@ -198,6 +206,9 @@ public class JuegoCartas extends JFrame {
                         JLabel res = new JLabel("Gano la carta del jugador");
                         puntajeJug[0] += 50;
                         System.out.println(puntajeJug[0]);
+                        puntajeJugador.setText("Puntaje del Jugador: " + Arrays.toString(puntajeJug));
+
+                        panel.add(puntajeJugador);
 
                         res.setHorizontalAlignment(SwingConstants.CENTER);
                         res.setOpaque(true);
@@ -230,15 +241,14 @@ public class JuegoCartas extends JFrame {
         cartaJugador2.setPreferredSize(nuevoTamanio);
         panel.add(cartaJugador2);
 
+        panel.add(puntajeComputador);
+        panel.add(puntajeJugador);
+
 
         // Agregar las otras cosas
         panel.add(titulo);
         panel.add(fusionar);
-        panel.add(tituloCartaCompu);
         panel.add(tempor);
-
-        panel.add(puntajeComputador);
-        panel.add(puntajeJugador[0]);
 
         getContentPane().add(panel);
     }
