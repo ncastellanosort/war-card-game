@@ -9,8 +9,6 @@ import javax.swing.*;
 /*
  *
  * -- Fusion de cartas, boton fusionar, 2 checkbutton para seleccionar 2 cartas y luego sumar el promedio de las 2
- * -- Intentar ponerlo en la interfaz linda
- * -- Poner en la interfaz grafica el puntaje
  *
  * */
 
@@ -57,9 +55,6 @@ public class JuegoCartas extends JFrame {
         String rutaCarta2 = "C:\\Users\\Nicolas\\Documents\\Code\\Intellij\\juegodecartaslindo\\JuegoCartas\\src\\juegocartas\\imagenes\\imagen2.png";
         String rutaCarta3 = "C:\\Users\\Nicolas\\Documents\\Code\\Intellij\\juegodecartaslindo\\JuegoCartas\\src\\juegocartas\\imagenes\\imagen3.png";
 
-        // El titulo del juego
-        JLabel titulo = new JLabel("|Inicio del juego|");
-
 
         // Los puntajes
         final int[] puntajeCompu = {0};
@@ -67,15 +62,23 @@ public class JuegoCartas extends JFrame {
 
 
         JLabel puntajeComputador = new JLabel("Puntaje del Computador: ");
+        // Letra para puntaje del computador
+        Font letraPuntajeComputador = new Font(puntajeComputador.getFont().getName(), Font.PLAIN, 23);
+        puntajeComputador.setFont(letraPuntajeComputador);
+
+        // Letra para puntaje de la persona
         JLabel puntajeJugador = new JLabel("Puntaje del Jugador: ");
+        Font letraPuntajeJugador = new Font(puntajeJugador.getFont().getName(), Font.PLAIN, 23);
+        puntajeJugador.setFont(letraPuntajeJugador);
 
+        // Letra para el temporizador
 
-        JLabel tempor = new JLabel("Temporizador: ");
-
+        JLabel tempor = new JLabel(" ");
+        Font letraTemporizador = new Font(tempor.getFont().getName(), Font.PLAIN, 25);
+        tempor.setFont(letraTemporizador);
 
         // Boton de fusionar
         JButton fusionar = new JButton("Fusionar!");
-        
 
         JButton cartaDelComputador = new ImageButton("Num random: " + promedio1, rutaCarta1);
 
@@ -92,71 +95,65 @@ public class JuegoCartas extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Carta del jugador presionada");
                 cartaJugador.setVisible(false);
+
                 try {
                     Thread.sleep(2 * 1000);
                 } catch (InterruptedException ex) {
                     throw new RuntimeException(ex);
                 }
+
                 checkbox.setSelected(true);
-                if (checkbox.isSelected()) {
-//                    System.out.println("Carta seleccionada");
 
-                    for (int i = 3; i > 0; i--) {
+                Timer timer = new Timer(800, new ActionListener() {
+                    private int count = 3;
 
-                        try {
-                            tempor.setText(String.valueOf(i));
-                            System.out.println(i);
-                            Thread.sleep(500);
-                        } catch (InterruptedException ex) {
-                            throw new RuntimeException(ex);
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (count >= 1) {
+                            tempor.setText(Integer.toString(count));
+                            count--;
+                        } else {
+                            ((Timer) e.getSource()).stop();
+
+                            // Coloca el código del if aquí después de que termine el temporizador
+                            if (checkbox.isSelected()) {
+                                if (promedio1 > promedio2) {
+                                    System.out.println("Gano el computador");
+                                    JLabel res = new JLabel("Gano el computador");
+                                    puntajeCompu[0] += 50;
+                                    System.out.println(puntajeCompu[0]);
+                                    puntajeComputador.setText("Puntaje del Computador: " + Arrays.toString(puntajeCompu));
+                                    panel.add(puntajeComputador);
+
+                                    res.setHorizontalAlignment(SwingConstants.CENTER);
+                                    res.setOpaque(true);
+                                    res.setBackground(Color.BLUE);
+                                    res.setPreferredSize(dimensionLabel);
+
+                                    panel.add(res);
+                                } else {
+                                    System.out.println("Gano la carta del jugador");
+                                    JLabel res = new JLabel("Gano la carta del jugador");
+                                    puntajeJug[0] += 50;
+                                    System.out.println(puntajeJug[0]);
+                                    puntajeJugador.setText("Puntaje del Jugador: " + Arrays.toString(puntajeJug));
+
+                                    panel.add(puntajeJugador);
+
+                                    res.setHorizontalAlignment(SwingConstants.CENTER);
+                                    res.setOpaque(true);
+                                    res.setBackground(Color.RED);
+                                    res.setPreferredSize(dimensionLabel);
+
+                                    panel.add(res);
+                                }
+                            }
                         }
-
                     }
-
-                    if (promedio1 > promedio2) {
-                        System.out.println("Gano el computador");
-                        JLabel res = new JLabel("Gano el computador");
-                        puntajeCompu[0] += 50;
-                        System.out.println(puntajeCompu[0]);
-                        puntajeComputador.setText("Puntaje del Computador: " + Arrays.toString(puntajeCompu));
-                        panel.add(puntajeComputador);
-
-
-                        res.setHorizontalAlignment(SwingConstants.CENTER);
-                        res.setOpaque(true);
-                        res.setBackground(Color.BLUE);
-                        res.setPreferredSize(dimensionLabel);
-
-                        panel.add(res);
-                    } else {
-
-                        System.out.println("Gano la carta del jugador");
-                        JLabel res = new JLabel("Gano la carta del jugador");
-                        puntajeJug[0] += 50;
-                        System.out.println(puntajeJug[0]);
-                        puntajeJugador.setText("Puntaje del Jugador: " + Arrays.toString(puntajeJug));
-
-                        panel.add(puntajeJugador);
-
-                        res.setHorizontalAlignment(SwingConstants.CENTER);
-                        res.setOpaque(true);
-                        res.setBackground(Color.RED);
-                        res.setPreferredSize(dimensionLabel);
-
-                        panel.add(res);
-
-                    }
-
-                }
-
-                try {
-                    Thread.sleep(2 * 1000);
-                } catch (InterruptedException ex) {
-                    throw new RuntimeException(ex);
-                }
-
-                checkbox.setSelected(false);
+                });
+                timer.start();
             }
+
         });
 
         // Segunda carta del jugador
@@ -165,70 +162,65 @@ public class JuegoCartas extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Carta del jugador presionada");
                 cartaJugador2.setVisible(false);
+
                 try {
                     Thread.sleep(2 * 1000);
                 } catch (InterruptedException ex) {
                     throw new RuntimeException(ex);
                 }
+
                 checkbox.setSelected(true);
-                if (checkbox.isSelected()) {
-//                    System.out.println("Carta seleccionada");
 
-                    for (int i = 3; i > 0; i--) {
+                Timer timer = new Timer(800, new ActionListener() {
+                    private int count = 3;
 
-                        try {
-                            tempor.setText(String.valueOf(i));
-                            System.out.println(i);
-                            Thread.sleep(500);
-                        } catch (InterruptedException ex) {
-                            throw new RuntimeException(ex);
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (count >= 1) {
+                            tempor.setText(Integer.toString(count));
+                            count--;
+                        } else {
+                            ((Timer) e.getSource()).stop();
+
+                            // Coloca el código del if aquí después de que termine el temporizador
+                            if (checkbox.isSelected()) {
+                                if (promedio1 > promedio2) {
+                                    System.out.println("Gano el computador");
+                                    JLabel res = new JLabel("Gano el computador");
+                                    puntajeCompu[0] += 50;
+                                    System.out.println(puntajeCompu[0]);
+                                    puntajeComputador.setText("Puntaje del Computador: " + Arrays.toString(puntajeCompu));
+                                    panel.add(puntajeComputador);
+
+                                    res.setHorizontalAlignment(SwingConstants.CENTER);
+                                    res.setOpaque(true);
+                                    res.setBackground(Color.BLUE);
+                                    res.setPreferredSize(dimensionLabel);
+
+                                    panel.add(res);
+                                } else {
+                                    System.out.println("Gano la carta del jugador");
+                                    JLabel res = new JLabel("Gano la carta del jugador");
+                                    puntajeJug[0] += 50;
+                                    System.out.println(puntajeJug[0]);
+                                    puntajeJugador.setText("Puntaje del Jugador: " + Arrays.toString(puntajeJug));
+
+                                    panel.add(puntajeJugador);
+
+                                    res.setHorizontalAlignment(SwingConstants.CENTER);
+                                    res.setOpaque(true);
+                                    res.setBackground(Color.RED);
+                                    res.setPreferredSize(dimensionLabel);
+
+                                    panel.add(res);
+                                }
+                            }
                         }
-
                     }
-
-                    if (promedio1 > promedio3) {
-                        System.out.println("Gano el computador");
-                        JLabel res = new JLabel("Gano el computador");
-                        puntajeCompu[0] += 50;
-                        System.out.println(puntajeCompu[0]);
-                        puntajeComputador.setText("Puntaje del Computador: " + Arrays.toString(puntajeCompu));
-                        panel.add(puntajeComputador);
-
-                        res.setHorizontalAlignment(SwingConstants.CENTER);
-                        res.setOpaque(true);
-                        res.setBackground(Color.BLUE);
-                        res.setPreferredSize(dimensionLabel);
-
-                        panel.add(res);
-                    } else {
-
-                        System.out.println("Gano la carta del jugador");
-                        JLabel res = new JLabel("Gano la carta del jugador");
-                        puntajeJug[0] += 50;
-                        System.out.println(puntajeJug[0]);
-                        puntajeJugador.setText("Puntaje del Jugador: " + Arrays.toString(puntajeJug));
-
-                        panel.add(puntajeJugador);
-
-                        res.setHorizontalAlignment(SwingConstants.CENTER);
-                        res.setOpaque(true);
-                        res.setBackground(Color.RED);
-                        res.setPreferredSize(dimensionLabel);
-
-                        panel.add(res);
-
-                    }
-
-                }
-
-                try {
-                    Thread.sleep(2 * 1000);
-                } catch (InterruptedException ex) {
-                    throw new RuntimeException(ex);
-                }
-
-                checkbox.setSelected(false);
+                });
+                timer.start();
             }
+
         });
 
         // Agregar las cartas
@@ -246,7 +238,6 @@ public class JuegoCartas extends JFrame {
 
 
         // Agregar las otras cosas
-        panel.add(titulo);
         panel.add(fusionar);
         panel.add(tempor);
 
@@ -260,3 +251,4 @@ public class JuegoCartas extends JFrame {
 
     }
 }
+
