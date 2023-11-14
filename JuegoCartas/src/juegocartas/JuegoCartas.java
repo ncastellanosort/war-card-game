@@ -48,7 +48,6 @@ public class JuegoCartas extends JFrame {
 
         int promedio3 = (int) (Math.random() * 302 + 290);
 
-
         Dimension nuevoTamanio = new Dimension(122, 248);
 
         Dimension dimensionLabel = new Dimension(200, 50);
@@ -71,6 +70,8 @@ public class JuegoCartas extends JFrame {
         JButton cartaJugador = new ImageButton("Num random: " + promedio1, rutaCarta1);
 
         JButton cartaJugador2 = new ImageButton("Num random: " + promedio3, rutaCarta3);
+
+        JButton fusionar = new JButton("Fusionar!");
 
         JCheckBox checkbox = new JCheckBox(" ");
         checkbox.setVisible(false);
@@ -213,6 +214,7 @@ public class JuegoCartas extends JFrame {
         panel.add(cartaDelComputador);
 
         panel.add(titulo);
+        panel.add(fusionar);
         panel.add(tituloCartaCompu);
         panel.add(tempor);
 
