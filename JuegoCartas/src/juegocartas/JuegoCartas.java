@@ -46,6 +46,8 @@ public class JuegoCartas extends JFrame {
 
         int promedio2 = (int) (Math.random() * 302 + 290);
 
+        int promedio3 = (int) (Math.random() * 302 + 290);
+
 
         Dimension nuevoTamanio = new Dimension(122, 248);
 
@@ -56,6 +58,8 @@ public class JuegoCartas extends JFrame {
 
         String rutaCarta2 = "C:\\Users\\Nicolas\\Documents\\Code\\Intellij\\juegodecartaslindo\\JuegoCartas\\src\\juegocartas\\imagenes\\imagen2.png";
 
+        String rutaCarta3 = "C:\\Users\\Nicolas\\Documents\\Code\\Intellij\\juegodecartaslindo\\JuegoCartas\\src\\juegocartas\\imagenes\\imagen3.png";
+
         JLabel titulo = new JLabel("Inicio del juego.");
 
         JLabel puntajeComputador = new JLabel(".");
@@ -65,6 +69,8 @@ public class JuegoCartas extends JFrame {
         JLabel tempor = new JLabel("....");
 
         JButton cartaJugador = new ImageButton("Num random: " + promedio1, rutaCarta1);
+
+        JButton cartaJugador2 = new ImageButton("Num random: " + promedio3, rutaCarta3);
 
         JCheckBox checkbox = new JCheckBox(" ");
         checkbox.setVisible(false);
@@ -199,6 +205,9 @@ public class JuegoCartas extends JFrame {
 
         cartaJugador.setPreferredSize(nuevoTamanio);
         panel.add(cartaJugador);
+
+        cartaJugador.setPreferredSize(nuevoTamanio);
+        panel.add(cartaJugador2);
 
         cartaDelComputador.setPreferredSize(nuevoTamanio);
         panel.add(cartaDelComputador);
