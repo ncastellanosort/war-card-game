@@ -178,7 +178,11 @@ class Login2 extends JFrame {
 //    }
 //}
 
-public class JuegoCartas extends JFrame {
+public class JuegoCartas extends JFrame{
+
+    private JButton cartaJugador6;
+    private JButton cartaJugador2;
+    private JButton cartaJugador7;
 
     public JuegoCartas() {
 
@@ -198,19 +202,21 @@ public class JuegoCartas extends JFrame {
         int promedio5 = (int) (Math.random() * 350 + 280);
         int promedio6 = (int) (Math.random() * 350 + 280);
         int promedio7 = (int) (Math.random() * 350 + 280);
+        int promedio8 = (int) (Math.random() * 350 + 280);
 
         Dimension nuevoTamanio = new Dimension(122, 248);
         Dimension dimensionLabel = new Dimension(200, 50);
         Dimension dimensionLabelPuntajes = new Dimension(600, 50);
 
 
-        String rutaCarta1 = "C:\\Users\\Nicolas\\Documents\\Code\\Intellij\\juegodecartaslindo\\JuegoCartas\\src\\juegocartas\\imagenes\\imagen1.png";
+        String rutaCarta1 = "C:\\Users\\Nicolas\\Documents\\Code\\Intellij\\juegodecartaslindo\\JuegoCartas\\src\\juegocartas\\imagenes\\imagen1comp.png";
         String rutaCarta2 = "C:\\Users\\Nicolas\\Documents\\Code\\Intellij\\juegodecartaslindo\\JuegoCartas\\src\\juegocartas\\imagenes\\imagen1a.png";
         String rutaCarta3 = "C:\\Users\\Nicolas\\Documents\\Code\\Intellij\\juegodecartaslindo\\JuegoCartas\\src\\juegocartas\\imagenes\\imagen2a.png";
         String rutaCarta4 = "C:\\Users\\Nicolas\\Documents\\Code\\Intellij\\juegodecartaslindo\\JuegoCartas\\src\\juegocartas\\imagenes\\imagen3a.png";
         String rutaCarta5 = "C:\\Users\\Nicolas\\Documents\\Code\\Intellij\\juegodecartaslindo\\JuegoCartas\\src\\juegocartas\\imagenes\\imagen4a.png";
         String rutaCarta6 = "C:\\Users\\Nicolas\\Documents\\Code\\Intellij\\juegodecartaslindo\\JuegoCartas\\src\\juegocartas\\imagenes\\imagen5a.png";
         String rutaCarta7 = "C:\\Users\\Nicolas\\Documents\\Code\\Intellij\\juegodecartaslindo\\JuegoCartas\\src\\juegocartas\\imagenes\\imagen6a.png";
+        String rutaCarta8 = "C:\\Users\\Nicolas\\Documents\\Code\\Intellij\\juegodecartaslindo\\JuegoCartas\\src\\juegocartas\\imagenes\\imagenFusionada1.png";
 
 
         final int[] puntajeCompu = {0};
@@ -288,14 +294,6 @@ public class JuegoCartas extends JFrame {
                                     System.out.println("Gano el computador");
                                     JLabel res = new JLabel("Gano el computador");
 
-                                    try {
-                                        Thread.sleep(1000);
-                                    } catch (InterruptedException x) {
-                                        x.printStackTrace();
-                                    }
-
-                                    res.setVisible(false);
-
 
                                     puntajeCompu[0] += 50;
                                     System.out.println(puntajeCompu[0]);
@@ -311,14 +309,6 @@ public class JuegoCartas extends JFrame {
                                 } else {
                                     System.out.println("Gano la carta del jugador");
                                     JLabel res = new JLabel("Gano la carta del jugador");
-
-                                    try {
-                                        Thread.sleep(1000);
-                                    } catch (InterruptedException x) {
-                                        x.printStackTrace();
-                                    }
-
-                                    res.setVisible(false);
 
                                     puntajeJug[0] += 50;
                                     System.out.println(puntajeJug[0]);
@@ -342,7 +332,7 @@ public class JuegoCartas extends JFrame {
 
         });
 
-        JButton cartaJugador2 = new ImageButton("Num random: " + promedio3, rutaCarta3);
+        cartaJugador2 = new ImageButton("Num random: " + promedio3, rutaCarta3);
         cartaJugador2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Carta del jugador presionada");
@@ -372,14 +362,6 @@ public class JuegoCartas extends JFrame {
                                     System.out.println("Gano el computador");
                                     JLabel res = new JLabel("Gano el computador");
 
-                                    try {
-                                        Thread.sleep(1000);
-                                    } catch (InterruptedException x) {
-                                        x.printStackTrace();
-                                    }
-
-                                    res.setVisible(false);
-
 
                                     puntajeCompu[0] += 50;
                                     System.out.println(puntajeCompu[0]);
@@ -396,13 +378,6 @@ public class JuegoCartas extends JFrame {
                                     System.out.println("Gano la carta del jugador");
                                     JLabel res = new JLabel("Gano la carta del jugador");
 
-                                    try {
-                                        Thread.sleep(1000);
-                                    } catch (InterruptedException x) {
-                                        x.printStackTrace();
-                                    }
-
-                                    res.setVisible(false);
 
 
                                     puntajeJug[0] += 50;
@@ -457,14 +432,6 @@ public class JuegoCartas extends JFrame {
                                     System.out.println("Gano el computador");
                                     JLabel res = new JLabel("Gano el computador");
 
-                                    try {
-                                        Thread.sleep(1000);
-                                    } catch (InterruptedException x) {
-                                        x.printStackTrace();
-                                    }
-
-                                    res.setVisible(false);
-
 
                                     puntajeCompu[0] += 50;
                                     System.out.println(puntajeCompu[0]);
@@ -481,13 +448,6 @@ public class JuegoCartas extends JFrame {
                                     System.out.println("Gano la carta del jugador");
                                     JLabel res = new JLabel("Gano la carta del jugador");
 
-                                    try {
-                                        Thread.sleep(1000);
-                                    } catch (InterruptedException x) {
-                                        x.printStackTrace();
-                                    }
-
-                                    res.setVisible(false);
 
 
                                     puntajeJug[0] += 50;
@@ -542,13 +502,6 @@ public class JuegoCartas extends JFrame {
                                     System.out.println("Gano el computador");
                                     JLabel res = new JLabel("Gano el computador");
 
-                                    try {
-                                        Thread.sleep(1000);
-                                    } catch (InterruptedException x) {
-                                        x.printStackTrace();
-                                    }
-
-                                    res.setVisible(false);
 
                                     puntajeCompu[0] += 50;
                                     System.out.println(puntajeCompu[0]);
@@ -564,14 +517,6 @@ public class JuegoCartas extends JFrame {
                                 } else {
                                     System.out.println("Gano la carta del jugador");
                                     JLabel res = new JLabel("Gano la carta del jugador");
-
-                                    try {
-                                        Thread.sleep(1000);
-                                    } catch (InterruptedException x) {
-                                        x.printStackTrace();
-                                    }
-
-                                    res.setVisible(false);
 
                                     puntajeJug[0] += 50;
                                     System.out.println(puntajeJug[0]);
@@ -625,14 +570,6 @@ public class JuegoCartas extends JFrame {
                                     System.out.println("Gano el computador");
                                     JLabel res = new JLabel("Gano el computador");
 
-                                    try {
-                                        Thread.sleep(1000);
-                                    } catch (InterruptedException x) {
-                                        x.printStackTrace();
-                                    }
-
-                                    res.setVisible(false);
-
 
                                     puntajeCompu[0] += 50;
                                     System.out.println(puntajeCompu[0]);
@@ -649,13 +586,6 @@ public class JuegoCartas extends JFrame {
                                     System.out.println("Gano la carta del jugador");
                                     JLabel res = new JLabel("Gano la carta del jugador");
 
-                                    try {
-                                        Thread.sleep(1000);
-                                    } catch (InterruptedException x) {
-                                        x.printStackTrace();
-                                    }
-
-                                    res.setVisible(false);
 
 
                                     puntajeJug[0] += 50;
@@ -680,7 +610,7 @@ public class JuegoCartas extends JFrame {
 
         });
 
-        JButton cartaJugador6 = new ImageButton("Num random: " + promedio7, rutaCarta7);
+        cartaJugador6 = new ImageButton("Num random: " + promedio7, rutaCarta7);
         cartaJugador6.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Carta del jugador presionada");
@@ -710,14 +640,6 @@ public class JuegoCartas extends JFrame {
                                     System.out.println("Gano el computador");
                                     JLabel res = new JLabel("Gano el computador");
 
-                                    try {
-                                        Thread.sleep(1000);
-                                    } catch (InterruptedException x) {
-                                        x.printStackTrace();
-                                    }
-
-                                    res.setVisible(false);
-
 
                                     puntajeCompu[0] += 50;
                                     System.out.println(puntajeCompu[0]);
@@ -733,14 +655,6 @@ public class JuegoCartas extends JFrame {
                                 } else {
                                     System.out.println("Gano la carta del jugador");
                                     JLabel res = new JLabel("Gano la carta del jugador");
-
-                                    try {
-                                        Thread.sleep(1000);
-                                    } catch (InterruptedException x) {
-                                        x.printStackTrace();
-                                    }
-
-                                    res.setVisible(false);
 
 
                                     puntajeJug[0] += 50;
@@ -765,20 +679,20 @@ public class JuegoCartas extends JFrame {
 
         });
 
-        private void mostrarNuevaCarta(){
-
-            JButton cartaJugador7 = new ImageButton("Num random: " + promedio7, rutaCarta6);
-            panel.add(cartaJugador7);
-            cartaJugador7.setVisible(true);
-            panel.revalidate();
-            panel.repaint();
-        }
 
         fusionar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Carta del jugador presionada");
-//                mostrarNuevaCarta();
+                cartaJugador6.setVisible(false);
+                cartaJugador2.setVisible(false);
+                cartaJugador7 = new ImageButton("Num Random: " + promedio8, rutaCarta8);
+                cartaJugador7.addActionListener(ac);
+                panel.add(cartaJugador7);
+                cartaJugador7.setVisible(true);
+                cartaJugador7.setPreferredSize(nuevoTamanio);
+                panel.revalidate();
+                panel.repaint();
             }
         });
 
