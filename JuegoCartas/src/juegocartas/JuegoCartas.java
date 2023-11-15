@@ -75,7 +75,8 @@ class Login2 extends JFrame {
 
         JButton boton = new JButton("QUE INICIEN LOS DESAPARECIDOS");
         Dimension tamanosBotonLogin = new Dimension(400, 70);
-        boton.setBackground(Color.RED);
+        boton.setBackground(Color.BLACK);
+        boton.setForeground(Color.WHITE);
         boton.setPreferredSize(tamanosBotonLogin);
 
         boton.addActionListener(new ActionListener() {
