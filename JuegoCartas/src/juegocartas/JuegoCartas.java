@@ -7,10 +7,22 @@ import javax.swing.*;
 
 /*
  *
- * -- Fusion de cartas, boton fusionar, 2 checkbutton para seleccionar 2 cartas y luego sumar el promedio de las 2
- * y compararlo con el doble del promedio de la carta del computador
  *
  * */
+
+class FondoPanel extends JPanel {
+    private Image imagenFondo;
+
+    public FondoPanel(String imagePath) {
+        this.imagenFondo = new ImageIcon(imagePath).getImage();
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.drawImage(imagenFondo, 0, 0, getWidth(), getHeight(), this);
+    }
+}
 
 class ImageButton extends JButton {
     private Image backgroundImage;
@@ -31,30 +43,34 @@ class ImageButton extends JButton {
 public class JuegoCartas extends JFrame {
     public JuegoCartas() {
 
-        setTitle("Titulo");
+        setTitle("WAR CARD GAME");
         setSize(1024, 768);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        JPanel panel = new JPanel();
+        // JPanel panel = new JPanel();
+        FondoPanel panel = new FondoPanel("C:\\Users\\Nicolas\\Documents\\Code\\Intellij\\juegodecartaslindo\\JuegoCartas\\src\\juegocartas\\imagenes\\fondo.jpg");
 
 
-        int promedio1 = (int) (Math.random() * 320 + 280);
-        int promedio2 = (int) (Math.random() * 320 + 280);
-        int promedio3 = (int) (Math.random() * 320 + 280);
-        int promedio4 = (int) (Math.random() * 320 + 280);
-        int promedio5 = (int) (Math.random() * 320 + 280);
-        int promedio6 = (int) (Math.random() * 320 + 280);
-        int promedio7 = (int) (Math.random() * 320 + 280);
+        int promedio1 = (int) (Math.random() * 350 + 280);
+        int promedio2 = (int) (Math.random() * 350 + 280);
+        int promedio3 = (int) (Math.random() * 350 + 280);
+        int promedio4 = (int) (Math.random() * 350 + 280);
+        int promedio5 = (int) (Math.random() * 350 + 280);
+        int promedio6 = (int) (Math.random() * 350 + 280);
+        int promedio7 = (int) (Math.random() * 350 + 280);
 
         Dimension nuevoTamanio = new Dimension(122, 248);
         Dimension dimensionLabel = new Dimension(200, 50);
+        Dimension dimensionLabelPuntajes = new Dimension(600, 50);
 
 
         String rutaCarta1 = "C:\\Users\\Nicolas\\Documents\\Code\\Intellij\\juegodecartaslindo\\JuegoCartas\\src\\juegocartas\\imagenes\\imagen1.png";
-        String rutaCarta2 = "C:\\Users\\Nicolas\\Documents\\Code\\Intellij\\juegodecartaslindo\\JuegoCartas\\src\\juegocartas\\imagenes\\imagen2.png";
-        String rutaCarta3 = "C:\\Users\\Nicolas\\Documents\\Code\\Intellij\\juegodecartaslindo\\JuegoCartas\\src\\juegocartas\\imagenes\\imagen3.png";
-        String rutaCarta4 = "C:\\Users\\Nicolas\\Documents\\Code\\Intellij\\juegodecartaslindo\\JuegoCartas\\src\\juegocartas\\imagenes\\imagen3.png";
-        String rutaCarta5 = "C:\\Users\\Nicolas\\Documents\\Code\\Intellij\\juegodecartaslindo\\JuegoCartas\\src\\juegocartas\\imagenes\\imagen3.png";
+        String rutaCarta2 = "C:\\Users\\Nicolas\\Documents\\Code\\Intellij\\juegodecartaslindo\\JuegoCartas\\src\\juegocartas\\imagenes\\imagen1a.png";
+        String rutaCarta3 = "C:\\Users\\Nicolas\\Documents\\Code\\Intellij\\juegodecartaslindo\\JuegoCartas\\src\\juegocartas\\imagenes\\imagen2a.png";
+        String rutaCarta4 = "C:\\Users\\Nicolas\\Documents\\Code\\Intellij\\juegodecartaslindo\\JuegoCartas\\src\\juegocartas\\imagenes\\imagen3a.png";
+        String rutaCarta5 = "C:\\Users\\Nicolas\\Documents\\Code\\Intellij\\juegodecartaslindo\\JuegoCartas\\src\\juegocartas\\imagenes\\imagen4a.png";
+        String rutaCarta6 = "C:\\Users\\Nicolas\\Documents\\Code\\Intellij\\juegodecartaslindo\\JuegoCartas\\src\\juegocartas\\imagenes\\imagen5a.png";
+        String rutaCarta7 = "C:\\Users\\Nicolas\\Documents\\Code\\Intellij\\juegodecartaslindo\\JuegoCartas\\src\\juegocartas\\imagenes\\imagen6a.png";
 
 
         final int[] puntajeCompu = {0};
@@ -62,18 +78,30 @@ public class JuegoCartas extends JFrame {
 
 
         JLabel puntajeComputador = new JLabel("Puntaje del Computador: ");
-
+        puntajeComputador.setHorizontalAlignment(SwingConstants.CENTER);
+        puntajeComputador.setOpaque(true);
+        puntajeComputador.setBackground(Color.LIGHT_GRAY);
+        puntajeComputador.setPreferredSize(dimensionLabelPuntajes);
         Font letraPuntajeComputador = new Font(puntajeComputador.getFont().getName(), Font.PLAIN, 23);
         puntajeComputador.setFont(letraPuntajeComputador);
 
 
         JLabel puntajeJugador = new JLabel("Puntaje del Jugador: ");
+        puntajeJugador.setHorizontalAlignment(SwingConstants.LEFT);
+        puntajeJugador.setOpaque(true);
+        puntajeJugador.setBackground(Color.YELLOW);
+        puntajeJugador.setPreferredSize(dimensionLabelPuntajes);
         Font letraPuntajeJugador = new Font(puntajeJugador.getFont().getName(), Font.PLAIN, 23);
         puntajeJugador.setFont(letraPuntajeJugador);
 
 
         JLabel tempor = new JLabel(" ");
-        Font letraTemporizador = new Font(tempor.getFont().getName(), Font.PLAIN, 25);
+
+        tempor.setHorizontalAlignment(SwingConstants.LEFT);
+        tempor.setOpaque(true);
+        tempor.setBackground(Color.GREEN);
+        tempor.setPreferredSize(dimensionLabel);
+        Font letraTemporizador = new Font(tempor.getFont().getName(), Font.PLAIN, 35);
         tempor.setFont(letraTemporizador);
 
         JButton fusionar = new JButton("Fusionar!");
@@ -220,7 +248,7 @@ public class JuegoCartas extends JFrame {
 
         });
 
-        JButton cartaJugador3 = new ImageButton("Num random: " + promedio4, rutaCarta3);
+        JButton cartaJugador3 = new ImageButton("Num random: " + promedio4, rutaCarta4);
         cartaJugador3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Carta del jugador presionada");
@@ -285,7 +313,7 @@ public class JuegoCartas extends JFrame {
 
         });
 
-        JButton cartaJugador4 = new ImageButton("Num random: " + promedio5, rutaCarta3);
+        JButton cartaJugador4 = new ImageButton("Num random: " + promedio5, rutaCarta5);
         cartaJugador4.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Carta del jugador presionada");
@@ -350,7 +378,7 @@ public class JuegoCartas extends JFrame {
 
         });
 
-        JButton cartaJugador5 = new ImageButton("Num random: " + promedio6, rutaCarta3);
+        JButton cartaJugador5 = new ImageButton("Num random: " + promedio6, rutaCarta6);
         cartaJugador5.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Carta del jugador presionada");
@@ -415,7 +443,7 @@ public class JuegoCartas extends JFrame {
 
         });
 
-        JButton cartaJugador6 = new ImageButton("Num random: " + promedio7, rutaCarta3);
+        JButton cartaJugador6 = new ImageButton("Num random: " + promedio7, rutaCarta7);
         cartaJugador6.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Carta del jugador presionada");
