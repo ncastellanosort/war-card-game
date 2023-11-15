@@ -1,6 +1,5 @@
 package juegocartas;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Arrays;
@@ -180,7 +179,9 @@ class Login2 extends JFrame {
 //}
 
 public class JuegoCartas extends JFrame {
+
     public JuegoCartas() {
+
 
         setTitle("WAR CARD GAME");
         setSize(1024, 768);
@@ -286,6 +287,16 @@ public class JuegoCartas extends JFrame {
                                 if (promedio1 > promedio2) {
                                     System.out.println("Gano el computador");
                                     JLabel res = new JLabel("Gano el computador");
+
+                                    try {
+                                        Thread.sleep(1000);
+                                    } catch (InterruptedException x) {
+                                        x.printStackTrace();
+                                    }
+
+                                    res.setVisible(false);
+
+
                                     puntajeCompu[0] += 50;
                                     System.out.println(puntajeCompu[0]);
                                     puntajeComputador.setText("Puntaje del Computador: " + Arrays.toString(puntajeCompu));
@@ -300,6 +311,15 @@ public class JuegoCartas extends JFrame {
                                 } else {
                                     System.out.println("Gano la carta del jugador");
                                     JLabel res = new JLabel("Gano la carta del jugador");
+
+                                    try {
+                                        Thread.sleep(1000);
+                                    } catch (InterruptedException x) {
+                                        x.printStackTrace();
+                                    }
+
+                                    res.setVisible(false);
+
                                     puntajeJug[0] += 50;
                                     System.out.println(puntajeJug[0]);
                                     puntajeJugador.setText("Puntaje del Jugador: " + Arrays.toString(puntajeJug));
@@ -351,6 +371,16 @@ public class JuegoCartas extends JFrame {
                                 if (promedio1 > promedio2) {
                                     System.out.println("Gano el computador");
                                     JLabel res = new JLabel("Gano el computador");
+
+                                    try {
+                                        Thread.sleep(1000);
+                                    } catch (InterruptedException x) {
+                                        x.printStackTrace();
+                                    }
+
+                                    res.setVisible(false);
+
+
                                     puntajeCompu[0] += 50;
                                     System.out.println(puntajeCompu[0]);
                                     puntajeComputador.setText("Puntaje del Computador: " + Arrays.toString(puntajeCompu));
@@ -365,6 +395,16 @@ public class JuegoCartas extends JFrame {
                                 } else {
                                     System.out.println("Gano la carta del jugador");
                                     JLabel res = new JLabel("Gano la carta del jugador");
+
+                                    try {
+                                        Thread.sleep(1000);
+                                    } catch (InterruptedException x) {
+                                        x.printStackTrace();
+                                    }
+
+                                    res.setVisible(false);
+
+
                                     puntajeJug[0] += 50;
                                     System.out.println(puntajeJug[0]);
                                     puntajeJugador.setText("Puntaje del Jugador: " + Arrays.toString(puntajeJug));
@@ -416,6 +456,16 @@ public class JuegoCartas extends JFrame {
                                 if (promedio1 > promedio4) {
                                     System.out.println("Gano el computador");
                                     JLabel res = new JLabel("Gano el computador");
+
+                                    try {
+                                        Thread.sleep(1000);
+                                    } catch (InterruptedException x) {
+                                        x.printStackTrace();
+                                    }
+
+                                    res.setVisible(false);
+
+
                                     puntajeCompu[0] += 50;
                                     System.out.println(puntajeCompu[0]);
                                     puntajeComputador.setText("Puntaje del Computador: " + Arrays.toString(puntajeCompu));
@@ -430,6 +480,16 @@ public class JuegoCartas extends JFrame {
                                 } else {
                                     System.out.println("Gano la carta del jugador");
                                     JLabel res = new JLabel("Gano la carta del jugador");
+
+                                    try {
+                                        Thread.sleep(1000);
+                                    } catch (InterruptedException x) {
+                                        x.printStackTrace();
+                                    }
+
+                                    res.setVisible(false);
+
+
                                     puntajeJug[0] += 50;
                                     System.out.println(puntajeJug[0]);
                                     puntajeJugador.setText("Puntaje del Jugador: " + Arrays.toString(puntajeJug));
@@ -481,6 +541,15 @@ public class JuegoCartas extends JFrame {
                                 if (promedio1 > promedio5) {
                                     System.out.println("Gano el computador");
                                     JLabel res = new JLabel("Gano el computador");
+
+                                    try {
+                                        Thread.sleep(1000);
+                                    } catch (InterruptedException x) {
+                                        x.printStackTrace();
+                                    }
+
+                                    res.setVisible(false);
+
                                     puntajeCompu[0] += 50;
                                     System.out.println(puntajeCompu[0]);
                                     puntajeComputador.setText("Puntaje del Computador: " + Arrays.toString(puntajeCompu));
@@ -495,6 +564,15 @@ public class JuegoCartas extends JFrame {
                                 } else {
                                     System.out.println("Gano la carta del jugador");
                                     JLabel res = new JLabel("Gano la carta del jugador");
+
+                                    try {
+                                        Thread.sleep(1000);
+                                    } catch (InterruptedException x) {
+                                        x.printStackTrace();
+                                    }
+
+                                    res.setVisible(false);
+
                                     puntajeJug[0] += 50;
                                     System.out.println(puntajeJug[0]);
                                     puntajeJugador.setText("Puntaje del Jugador: " + Arrays.toString(puntajeJug));
@@ -546,6 +624,16 @@ public class JuegoCartas extends JFrame {
                                 if (promedio1 > promedio6) {
                                     System.out.println("Gano el computador");
                                     JLabel res = new JLabel("Gano el computador");
+
+                                    try {
+                                        Thread.sleep(1000);
+                                    } catch (InterruptedException x) {
+                                        x.printStackTrace();
+                                    }
+
+                                    res.setVisible(false);
+
+
                                     puntajeCompu[0] += 50;
                                     System.out.println(puntajeCompu[0]);
                                     puntajeComputador.setText("Puntaje del Computador: " + Arrays.toString(puntajeCompu));
@@ -560,6 +648,16 @@ public class JuegoCartas extends JFrame {
                                 } else {
                                     System.out.println("Gano la carta del jugador");
                                     JLabel res = new JLabel("Gano la carta del jugador");
+
+                                    try {
+                                        Thread.sleep(1000);
+                                    } catch (InterruptedException x) {
+                                        x.printStackTrace();
+                                    }
+
+                                    res.setVisible(false);
+
+
                                     puntajeJug[0] += 50;
                                     System.out.println(puntajeJug[0]);
                                     puntajeJugador.setText("Puntaje del Jugador: " + Arrays.toString(puntajeJug));
@@ -611,6 +709,16 @@ public class JuegoCartas extends JFrame {
                                 if (promedio1 > promedio7) {
                                     System.out.println("Gano el computador");
                                     JLabel res = new JLabel("Gano el computador");
+
+                                    try {
+                                        Thread.sleep(1000);
+                                    } catch (InterruptedException x) {
+                                        x.printStackTrace();
+                                    }
+
+                                    res.setVisible(false);
+
+
                                     puntajeCompu[0] += 50;
                                     System.out.println(puntajeCompu[0]);
                                     puntajeComputador.setText("Puntaje del Computador: " + Arrays.toString(puntajeCompu));
@@ -625,6 +733,16 @@ public class JuegoCartas extends JFrame {
                                 } else {
                                     System.out.println("Gano la carta del jugador");
                                     JLabel res = new JLabel("Gano la carta del jugador");
+
+                                    try {
+                                        Thread.sleep(1000);
+                                    } catch (InterruptedException x) {
+                                        x.printStackTrace();
+                                    }
+
+                                    res.setVisible(false);
+
+
                                     puntajeJug[0] += 50;
                                     System.out.println(puntajeJug[0]);
                                     puntajeJugador.setText("Puntaje del Jugador: " + Arrays.toString(puntajeJug));
@@ -647,6 +765,23 @@ public class JuegoCartas extends JFrame {
 
         });
 
+        private void mostrarNuevaCarta(){
+
+            JButton cartaJugador7 = new ImageButton("Num random: " + promedio7, rutaCarta6);
+            panel.add(cartaJugador7);
+            cartaJugador7.setVisible(true);
+            panel.revalidate();
+            panel.repaint();
+        }
+
+        fusionar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Carta del jugador presionada");
+//                mostrarNuevaCarta();
+            }
+        });
+
         JPanel panelBotonesJugador = new JPanel();
         panelBotonesJugador.add(cartaJugador);
         panelBotonesJugador.add(cartaJugador2);
@@ -660,27 +795,13 @@ public class JuegoCartas extends JFrame {
         panel.add(cartaDelComputador);
 
         cartaJugador.setPreferredSize(nuevoTamanio);
-        //panel.add(cartaJugador);
-
         cartaJugador2.setPreferredSize(nuevoTamanio);
-        //panel.add(cartaJugador2);
-
         cartaJugador3.setPreferredSize(nuevoTamanio);
-        //panel.add(cartaJugador3);
-
         cartaJugador4.setPreferredSize(nuevoTamanio);
-        //panel.add(cartaJugador4);
-
         cartaJugador5.setPreferredSize(nuevoTamanio);
-        //panel.add(cartaJugador5);
-
         cartaJugador6.setPreferredSize(nuevoTamanio);
-        //panel.add(cartaJugador6);
 
         panel.add(puntajeComputador);
-        //panel.add(puntajeJugador);
-
-
         panel.add(fusionar);
         panel.add(tempor);
 
