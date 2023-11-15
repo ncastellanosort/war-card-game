@@ -1,14 +1,10 @@
 package juegocartas;
-
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Arrays;
 import javax.swing.*;
-
-/*
- *
- *
- * */
 
 class FondoPanel extends JPanel {
     private Image imagenFondo;
@@ -39,6 +35,149 @@ class ImageButton extends JButton {
         g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
     }
 }
+
+class Login2 extends JFrame {
+    public Login2() {
+        setTitle("RECLUTAMIENTO FORZADO DECIA URIBE");
+        setSize(1024, 768);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        FondoPanel panel2 = new FondoPanel("C:\\Users\\Nicolas\\Documents\\Code\\Intellij\\juegodecartaslindo\\JuegoCartas\\src\\juegocartas\\imagenes\\imagenMenu.jpeg");
+
+        JButton boton = new JButton("QUE INICIEN LOS DESAPARECIDOS");
+
+        Dimension tamanosBotonLogin = new Dimension(400, 40);
+        boton.setBackground(Color.RED);
+        boton.setPreferredSize(tamanosBotonLogin);
+
+        boton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JuegoCartas game = new JuegoCartas();
+                game.setVisible(true);
+                dispose();
+            }
+        });
+
+
+        JTextField campoNombre = new JTextField();
+        JTextField campoEdad = new JTextField();
+
+
+        // Crear panel para el formulario
+        JPanel panelFormulario = new JPanel();
+
+        JLabel labelNombre = new JLabel("Nombre:");
+        panelFormulario.add(labelNombre);
+        panelFormulario.add(campoNombre);
+
+        // Etiqueta y campo para la edad
+        JLabel labelEdad = new JLabel("Edad:");
+        panelFormulario.add(labelEdad);
+        panelFormulario.add(campoEdad);
+
+        panel2.add(boton);
+
+        Font letraLabels = new Font(labelNombre.getFont().getName(), Font.PLAIN, 23);
+        labelNombre.setFont(letraLabels);
+        labelNombre.setForeground(Color.white);
+
+        Font letraLabels2 = new Font(labelEdad.getFont().getName(), Font.PLAIN, 23);
+        labelEdad.setFont(letraLabels2);
+        labelEdad.setForeground(Color.white);
+
+        Dimension tamanosLabelsInput = new Dimension(350, 30);
+        campoNombre.setPreferredSize(tamanosLabelsInput);
+        campoEdad.setPreferredSize(tamanosLabelsInput);
+
+
+        panel2.add(panelFormulario.add(labelNombre));
+        panel2.add(panelFormulario.add(campoNombre));
+        panel2.add(panelFormulario.add(labelEdad));
+        panel2.add(panelFormulario.add(campoEdad));
+
+
+        getContentPane().add(panel2);
+
+    }
+}
+
+
+//class Login2 extends JFrame {
+//    public Login2() {
+//        setTitle("RECLUTAMIENTO FORZADO DECIA URIBE");
+//        setSize(1024, 768);
+//        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//
+//        FondoPanel panel2 = new FondoPanel("C:\\Users\\Nicolas\\Documents\\Code\\Intellij\\juegodecartaslindo\\JuegoCartas\\src\\juegocartas\\imagenes\\imagenMenu.jpeg");
+//
+//        setLayout(new GridBagLayout());
+//
+//        JButton boton = new JButton("QUE INICIEN LOS DESAPARECIDOS");
+//
+//        Dimension tamanosBotonLogin = new Dimension(400, 40);
+//        boton.setBackground(Color.RED);
+//        boton.setPreferredSize(tamanosBotonLogin);
+//
+//        boton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                JuegoCartas game = new JuegoCartas();
+//                game.setVisible(true);
+//                dispose();
+//            }
+//        });
+//
+//        GridBagConstraints gbc = new GridBagConstraints();
+//            gbc.gridx = 0;
+//            gbc.gridy = 45; // Puedes ajustar este valor para cambiar la posición vertical
+//            gbc.insets = new Insets(10, 10, 10, 10); // Márgenes
+//
+//        // Agregar el botón al JFrame con las restricciones
+//        add(boton, gbc);
+//
+//
+//        JTextField campoNombre = new JTextField();
+//        JTextField campoEdad = new JTextField();
+//
+//
+//        // Crear panel para el formulario
+//        JPanel panelFormulario = new JPanel();
+//
+//        JLabel labelNombre = new JLabel("Nombre:");
+//        panelFormulario.add(labelNombre);
+//        panelFormulario.add(campoNombre);
+//
+//        // Etiqueta y campo para la edad
+//        JLabel labelEdad = new JLabel("Edad:");
+//        panelFormulario.add(labelEdad);
+//        panelFormulario.add(campoEdad);
+//
+//        panel2.add(boton);
+//
+//        Font letraLabels = new Font(labelNombre.getFont().getName(), Font.PLAIN, 23);
+//        labelNombre.setFont(letraLabels);
+//        labelNombre.setForeground(Color.white);
+//
+//        Font letraLabels2 = new Font(labelEdad.getFont().getName(), Font.PLAIN, 23);
+//        labelEdad.setFont(letraLabels2);
+//        labelEdad.setForeground(Color.white);
+//
+//        Dimension tamanosLabelsInput = new Dimension(350, 30);
+//        campoNombre.setPreferredSize(tamanosLabelsInput);
+//        campoEdad.setPreferredSize(tamanosLabelsInput);
+//
+//
+//        panel2.add(panelFormulario.add(labelNombre));
+//        panel2.add(panelFormulario.add(campoNombre));
+//        panel2.add(panelFormulario.add(labelEdad));
+//        panel2.add(panelFormulario.add(campoEdad));
+//
+//
+//        getContentPane().add(panel2);
+//
+//    }
+//}
 
 public class JuegoCartas extends JFrame {
     public JuegoCartas() {
@@ -508,41 +647,51 @@ public class JuegoCartas extends JFrame {
 
         });
 
+        JPanel panelBotonesJugador = new JPanel();
+        panelBotonesJugador.add(cartaJugador);
+        panelBotonesJugador.add(cartaJugador2);
+        panelBotonesJugador.add(cartaJugador3);
+        panelBotonesJugador.add(cartaJugador4);
+        panelBotonesJugador.add(cartaJugador5);
+        panelBotonesJugador.add(cartaJugador6);
+
+
         cartaDelComputador.setPreferredSize(nuevoTamanio);
         panel.add(cartaDelComputador);
 
         cartaJugador.setPreferredSize(nuevoTamanio);
-        panel.add(cartaJugador);
+        //panel.add(cartaJugador);
 
         cartaJugador2.setPreferredSize(nuevoTamanio);
-        panel.add(cartaJugador2);
+        //panel.add(cartaJugador2);
 
         cartaJugador3.setPreferredSize(nuevoTamanio);
-        panel.add(cartaJugador3);
+        //panel.add(cartaJugador3);
 
         cartaJugador4.setPreferredSize(nuevoTamanio);
-        panel.add(cartaJugador4);
+        //panel.add(cartaJugador4);
 
         cartaJugador5.setPreferredSize(nuevoTamanio);
-        panel.add(cartaJugador5);
+        //panel.add(cartaJugador5);
 
         cartaJugador6.setPreferredSize(nuevoTamanio);
-        panel.add(cartaJugador6);
+        //panel.add(cartaJugador6);
 
         panel.add(puntajeComputador);
-        panel.add(puntajeJugador);
+        //panel.add(puntajeJugador);
 
 
         panel.add(fusionar);
         panel.add(tempor);
 
-        getContentPane().add(panel);
+        panel.add(panelBotonesJugador, BorderLayout.SOUTH);
+        getContentPane().add(panel, BorderLayout.CENTER);
     }
 
-    public static void main(String[] args) {
 
-        JuegoCartas ventana = new JuegoCartas();
-        ventana.setVisible(true);
+    public static void main(String[] args) {
+        Login2 login = new Login2();
+        login.setVisible(true);
 
     }
 }
