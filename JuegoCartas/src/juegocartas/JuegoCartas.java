@@ -140,7 +140,8 @@ public class JuegoCartas extends JFrame {
 
         Dimension nuevoTamanio = new Dimension(122, 248);
         Dimension dimensionLabel = new Dimension(200, 50);
-        Dimension dimensionLabelPuntajes = new Dimension(600, 50);
+        Dimension tamanoTempor = new Dimension(50, 50);
+        Dimension dimensionLabelPuntajes = new Dimension(400, 50);
 
 
         String rutaCarta1 = "C:\\Users\\Nicolas\\Documents\\Code\\Intellij\\juegodecartaslindo\\JuegoCartas\\src\\juegocartas\\imagenes\\imagen1comp.png";
@@ -167,9 +168,9 @@ public class JuegoCartas extends JFrame {
 
 
         JLabel puntajeJugador = new JLabel("Puntaje del Jugador: ");
-        puntajeJugador.setHorizontalAlignment(SwingConstants.LEFT);
+        puntajeJugador.setHorizontalAlignment(SwingConstants.CENTER);
         puntajeJugador.setOpaque(true);
-        puntajeJugador.setBackground(Color.YELLOW);
+        puntajeJugador.setBackground(Color.GRAY);
         puntajeJugador.setPreferredSize(dimensionLabelPuntajes);
         Font letraPuntajeJugador = new Font(puntajeJugador.getFont().getName(), Font.PLAIN, 23);
         puntajeJugador.setFont(letraPuntajeJugador);
@@ -177,11 +178,12 @@ public class JuegoCartas extends JFrame {
 
         JLabel tempor = new JLabel(" ");
 
-        tempor.setHorizontalAlignment(SwingConstants.LEFT);
+        tempor.setHorizontalAlignment(SwingConstants.CENTER);
         tempor.setOpaque(true);
-        tempor.setBackground(Color.GREEN);
-        tempor.setPreferredSize(dimensionLabel);
+        tempor.setBackground(Color.BLACK);
+        tempor.setPreferredSize(tamanoTempor);
         Font letraTemporizador = new Font(tempor.getFont().getName(), Font.PLAIN, 35);
+        tempor.setForeground(Color.WHITE);
         tempor.setFont(letraTemporizador);
 
         JButton fusionar = new JButton("Fusionar!");
@@ -236,7 +238,8 @@ public class JuegoCartas extends JFrame {
 
                                     res.setHorizontalAlignment(SwingConstants.CENTER);
                                     res.setOpaque(true);
-                                    res.setBackground(Color.BLUE);
+                                    res.setForeground(Color.WHITE);
+                                    res.setBackground(Color.BLACK);
                                     res.setPreferredSize(dimensionLabel);
 
                                     panel.add(res);
@@ -252,7 +255,7 @@ public class JuegoCartas extends JFrame {
 
                                     res.setHorizontalAlignment(SwingConstants.CENTER);
                                     res.setOpaque(true);
-                                    res.setBackground(Color.RED);
+                                    res.setBackground(Color.GRAY);
                                     res.setPreferredSize(dimensionLabel);
 
                                     panel.add(res);
@@ -304,7 +307,8 @@ public class JuegoCartas extends JFrame {
 
                                     res.setHorizontalAlignment(SwingConstants.CENTER);
                                     res.setOpaque(true);
-                                    res.setBackground(Color.BLUE);
+                                    res.setForeground(Color.WHITE);
+                                    res.setBackground(Color.BLACK);
                                     res.setPreferredSize(dimensionLabel);
 
                                     panel.add(res);
@@ -321,7 +325,7 @@ public class JuegoCartas extends JFrame {
 
                                     res.setHorizontalAlignment(SwingConstants.CENTER);
                                     res.setOpaque(true);
-                                    res.setBackground(Color.RED);
+                                    res.setBackground(Color.GRAY);
                                     res.setPreferredSize(dimensionLabel);
 
                                     panel.add(res);
@@ -373,7 +377,8 @@ public class JuegoCartas extends JFrame {
 
                                     res.setHorizontalAlignment(SwingConstants.CENTER);
                                     res.setOpaque(true);
-                                    res.setBackground(Color.BLUE);
+                                    res.setForeground(Color.WHITE);
+                                    res.setBackground(Color.BLACK);
                                     res.setPreferredSize(dimensionLabel);
 
                                     panel.add(res);
@@ -390,7 +395,7 @@ public class JuegoCartas extends JFrame {
 
                                     res.setHorizontalAlignment(SwingConstants.CENTER);
                                     res.setOpaque(true);
-                                    res.setBackground(Color.RED);
+                                    res.setBackground(Color.GRAY);
                                     res.setPreferredSize(dimensionLabel);
 
                                     panel.add(res);
@@ -442,7 +447,8 @@ public class JuegoCartas extends JFrame {
 
                                     res.setHorizontalAlignment(SwingConstants.CENTER);
                                     res.setOpaque(true);
-                                    res.setBackground(Color.BLUE);
+                                    res.setForeground(Color.WHITE);
+                                    res.setBackground(Color.BLACK);
                                     res.setPreferredSize(dimensionLabel);
 
                                     panel.add(res);
@@ -458,7 +464,7 @@ public class JuegoCartas extends JFrame {
 
                                     res.setHorizontalAlignment(SwingConstants.CENTER);
                                     res.setOpaque(true);
-                                    res.setBackground(Color.RED);
+                                    res.setBackground(Color.GRAY);
                                     res.setPreferredSize(dimensionLabel);
 
                                     panel.add(res);
@@ -510,7 +516,8 @@ public class JuegoCartas extends JFrame {
 
                                     res.setHorizontalAlignment(SwingConstants.CENTER);
                                     res.setOpaque(true);
-                                    res.setBackground(Color.BLUE);
+                                    res.setForeground(Color.WHITE);
+                                    res.setBackground(Color.BLACK);
                                     res.setPreferredSize(dimensionLabel);
 
                                     panel.add(res);
@@ -527,7 +534,7 @@ public class JuegoCartas extends JFrame {
 
                                     res.setHorizontalAlignment(SwingConstants.CENTER);
                                     res.setOpaque(true);
-                                    res.setBackground(Color.RED);
+                                    res.setBackground(Color.GRAY);
                                     res.setPreferredSize(dimensionLabel);
 
                                     panel.add(res);
@@ -579,7 +586,8 @@ public class JuegoCartas extends JFrame {
 
                                     res.setHorizontalAlignment(SwingConstants.CENTER);
                                     res.setOpaque(true);
-                                    res.setBackground(Color.BLUE);
+                                    res.setForeground(Color.WHITE);
+                                    res.setBackground(Color.BLACK);
                                     res.setPreferredSize(dimensionLabel);
 
                                     panel.add(res);
@@ -596,7 +604,7 @@ public class JuegoCartas extends JFrame {
 
                                     res.setHorizontalAlignment(SwingConstants.CENTER);
                                     res.setOpaque(true);
-                                    res.setBackground(Color.RED);
+                                    res.setBackground(Color.GRAY);
                                     res.setPreferredSize(dimensionLabel);
 
                                     panel.add(res);
@@ -656,7 +664,8 @@ public class JuegoCartas extends JFrame {
 
                                             res.setHorizontalAlignment(SwingConstants.CENTER);
                                             res.setOpaque(true);
-                                            res.setBackground(Color.BLUE);
+                                            res.setForeground(Color.WHITE);
+                                            res.setBackground(Color.BLACK);
                                             res.setPreferredSize(dimensionLabel);
 
                                             panel.add(res);
@@ -673,7 +682,7 @@ public class JuegoCartas extends JFrame {
 
                                             res.setHorizontalAlignment(SwingConstants.CENTER);
                                             res.setOpaque(true);
-                                            res.setBackground(Color.RED);
+                                            res.setBackground(Color.GRAY);
                                             res.setPreferredSize(dimensionLabel);
 
                                             panel.add(res);
