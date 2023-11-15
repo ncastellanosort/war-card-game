@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.Arrays;
 import javax.swing.*;
+import java.util.Random;
 
 class FondoPanel extends JPanel {
     private Image imagenFondo;
@@ -37,15 +38,43 @@ class ImageButton extends JButton {
 
 class Login2 extends JFrame {
     public Login2() {
-        setTitle("RECLUTAMIENTO FORZADO DECIA URIBE");
+        setTitle("WAR CARD GAME");
         setSize(1024, 768);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         FondoPanel panel2 = new FondoPanel("C:\\Users\\Nicolas\\Documents\\Code\\Intellij\\juegodecartaslindo\\JuegoCartas\\src\\juegocartas\\imagenes\\imagenMenu.jpeg");
 
-        JButton boton = new JButton("QUE INICIEN LOS DESAPARECIDOS");
+        JTextField campoNombre = new JTextField();
+        JTextField campoEdad = new JTextField();
 
-        Dimension tamanosBotonLogin = new Dimension(400, 40);
+        JPanel panelFormulario = new JPanel();
+        panelFormulario.setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(5, 5, 5, 5);
+        gbc.anchor = GridBagConstraints.CENTER;
+
+        JLabel labelNombre = new JLabel("Nombre:");
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        panelFormulario.add(labelNombre, gbc);
+
+        campoNombre.setPreferredSize(new Dimension(350, 30));
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        panelFormulario.add(campoNombre, gbc);
+
+        JLabel labelEdad = new JLabel("Edad:");
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        panelFormulario.add(labelEdad, gbc);
+
+        campoEdad.setPreferredSize(new Dimension(350, 30));
+        gbc.gridx = 1;
+        gbc.gridy = 1;
+        panelFormulario.add(campoEdad, gbc);
+
+        JButton boton = new JButton("QUE INICIEN LOS DESAPARECIDOS");
+        Dimension tamanosBotonLogin = new Dimension(400, 70);
         boton.setBackground(Color.RED);
         boton.setPreferredSize(tamanosBotonLogin);
 
@@ -58,127 +87,30 @@ class Login2 extends JFrame {
             }
         });
 
+        panel2.setLayout(new BorderLayout());
+        panel2.add(panelFormulario, BorderLayout.NORTH);
+        panel2.add(boton, BorderLayout.SOUTH);
 
-        JTextField campoNombre = new JTextField();
-        JTextField campoEdad = new JTextField();
 
-
-        // Crear panel para el formulario
-        JPanel panelFormulario = new JPanel();
-
-        JLabel labelNombre = new JLabel("Nombre:");
-        panelFormulario.add(labelNombre);
-        panelFormulario.add(campoNombre);
-
-        // Etiqueta y campo para la edad
-        JLabel labelEdad = new JLabel("Edad:");
-        panelFormulario.add(labelEdad);
-        panelFormulario.add(campoEdad);
-
-        panel2.add(boton);
+        setLocationRelativeTo(null);
 
         Font letraLabels = new Font(labelNombre.getFont().getName(), Font.PLAIN, 23);
         labelNombre.setFont(letraLabels);
-        labelNombre.setForeground(Color.white);
+        labelNombre.setForeground(Color.black);
 
         Font letraLabels2 = new Font(labelEdad.getFont().getName(), Font.PLAIN, 23);
         labelEdad.setFont(letraLabels2);
-        labelEdad.setForeground(Color.white);
+        labelEdad.setForeground(Color.black);
 
-        Dimension tamanosLabelsInput = new Dimension(350, 30);
-        campoNombre.setPreferredSize(tamanosLabelsInput);
-        campoEdad.setPreferredSize(tamanosLabelsInput);
-
-
-        panel2.add(panelFormulario.add(labelNombre));
-        panel2.add(panelFormulario.add(campoNombre));
-        panel2.add(panelFormulario.add(labelEdad));
-        panel2.add(panelFormulario.add(campoEdad));
-
+        Font letraBoton = new Font(boton.getFont().getName(), Font.PLAIN, 25);
+        boton.setFont(letraBoton);
 
         getContentPane().add(panel2);
 
     }
 }
 
-
-//class Login2 extends JFrame {
-//    public Login2() {
-//        setTitle("RECLUTAMIENTO FORZADO DECIA URIBE");
-//        setSize(1024, 768);
-//        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//
-//        FondoPanel panel2 = new FondoPanel("C:\\Users\\Nicolas\\Documents\\Code\\Intellij\\juegodecartaslindo\\JuegoCartas\\src\\juegocartas\\imagenes\\imagenMenu.jpeg");
-//
-//        setLayout(new GridBagLayout());
-//
-//        JButton boton = new JButton("QUE INICIEN LOS DESAPARECIDOS");
-//
-//        Dimension tamanosBotonLogin = new Dimension(400, 40);
-//        boton.setBackground(Color.RED);
-//        boton.setPreferredSize(tamanosBotonLogin);
-//
-//        boton.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                JuegoCartas game = new JuegoCartas();
-//                game.setVisible(true);
-//                dispose();
-//            }
-//        });
-//
-//        GridBagConstraints gbc = new GridBagConstraints();
-//            gbc.gridx = 0;
-//            gbc.gridy = 45; // Puedes ajustar este valor para cambiar la posición vertical
-//            gbc.insets = new Insets(10, 10, 10, 10); // Márgenes
-//
-//        // Agregar el botón al JFrame con las restricciones
-//        add(boton, gbc);
-//
-//
-//        JTextField campoNombre = new JTextField();
-//        JTextField campoEdad = new JTextField();
-//
-//
-//        // Crear panel para el formulario
-//        JPanel panelFormulario = new JPanel();
-//
-//        JLabel labelNombre = new JLabel("Nombre:");
-//        panelFormulario.add(labelNombre);
-//        panelFormulario.add(campoNombre);
-//
-//        // Etiqueta y campo para la edad
-//        JLabel labelEdad = new JLabel("Edad:");
-//        panelFormulario.add(labelEdad);
-//        panelFormulario.add(campoEdad);
-//
-//        panel2.add(boton);
-//
-//        Font letraLabels = new Font(labelNombre.getFont().getName(), Font.PLAIN, 23);
-//        labelNombre.setFont(letraLabels);
-//        labelNombre.setForeground(Color.white);
-//
-//        Font letraLabels2 = new Font(labelEdad.getFont().getName(), Font.PLAIN, 23);
-//        labelEdad.setFont(letraLabels2);
-//        labelEdad.setForeground(Color.white);
-//
-//        Dimension tamanosLabelsInput = new Dimension(350, 30);
-//        campoNombre.setPreferredSize(tamanosLabelsInput);
-//        campoEdad.setPreferredSize(tamanosLabelsInput);
-//
-//
-//        panel2.add(panelFormulario.add(labelNombre));
-//        panel2.add(panelFormulario.add(campoNombre));
-//        panel2.add(panelFormulario.add(labelEdad));
-//        panel2.add(panelFormulario.add(campoEdad));
-//
-//
-//        getContentPane().add(panel2);
-//
-//    }
-//}
-
-public class JuegoCartas extends JFrame{
+public class JuegoCartas extends JFrame {
 
     private JButton cartaJugador6;
     private JButton cartaJugador2;
@@ -194,15 +126,17 @@ public class JuegoCartas extends JFrame{
         // JPanel panel = new JPanel();
         FondoPanel panel = new FondoPanel("C:\\Users\\Nicolas\\Documents\\Code\\Intellij\\juegodecartaslindo\\JuegoCartas\\src\\juegocartas\\imagenes\\fondo.jpg");
 
+        Random rand = new Random();
 
-        int promedio1 = (int) (Math.random() * 350 + 280);
-        int promedio2 = (int) (Math.random() * 350 + 280);
-        int promedio3 = (int) (Math.random() * 350 + 280);
-        int promedio4 = (int) (Math.random() * 350 + 280);
-        int promedio5 = (int) (Math.random() * 350 + 280);
-        int promedio6 = (int) (Math.random() * 350 + 280);
-        int promedio7 = (int) (Math.random() * 350 + 280);
-        int promedio8 = (int) (Math.random() * 350 + 280);
+
+        int promedio1 = rand.nextInt(350) + 280;
+        int promedio2 = rand.nextInt(350) + 280;
+        int promedio3 = rand.nextInt(350) + 280;
+        int promedio4 = rand.nextInt(350) + 280;
+        int promedio5 = rand.nextInt(350) + 280;
+        int promedio6 = rand.nextInt(350) + 280;
+        int promedio7 = rand.nextInt(350) + 280;
+        int promedio8 = rand.nextInt(350) + 280;
 
         Dimension nuevoTamanio = new Dimension(122, 248);
         Dimension dimensionLabel = new Dimension(200, 50);
@@ -379,7 +313,6 @@ public class JuegoCartas extends JFrame{
                                     JLabel res = new JLabel("Gano la carta del jugador");
 
 
-
                                     puntajeJug[0] += 50;
                                     System.out.println(puntajeJug[0]);
                                     puntajeJugador.setText("Puntaje del Jugador: " + Arrays.toString(puntajeJug));
@@ -447,7 +380,6 @@ public class JuegoCartas extends JFrame{
                                 } else {
                                     System.out.println("Gano la carta del jugador");
                                     JLabel res = new JLabel("Gano la carta del jugador");
-
 
 
                                     puntajeJug[0] += 50;
@@ -587,7 +519,6 @@ public class JuegoCartas extends JFrame{
                                     JLabel res = new JLabel("Gano la carta del jugador");
 
 
-
                                     puntajeJug[0] += 50;
                                     System.out.println(puntajeJug[0]);
                                     puntajeJugador.setText("Puntaje del Jugador: " + Arrays.toString(puntajeJug));
@@ -687,7 +618,73 @@ public class JuegoCartas extends JFrame{
                 cartaJugador6.setVisible(false);
                 cartaJugador2.setVisible(false);
                 cartaJugador7 = new ImageButton("Num Random: " + promedio8, rutaCarta8);
-                cartaJugador7.addActionListener(ac);
+                cartaJugador7.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        System.out.println("Carta del jugador presionada");
+                        cartaJugador7.setVisible(false);
+
+                        try {
+                            Thread.sleep(2 * 1000);
+                        } catch (InterruptedException ex) {
+                            throw new RuntimeException(ex);
+                        }
+
+                        checkbox.setSelected(true);
+
+                        Timer timer = new Timer(800, new ActionListener() {
+                            private int cont = 3;
+
+                            @Override
+                            public void actionPerformed(ActionEvent e) {
+                                if (cont >= 1) {
+                                    tempor.setText(Integer.toString(cont));
+                                    cont--;
+                                } else {
+                                    ((Timer) e.getSource()).stop();
+
+                                    if (checkbox.isSelected()) {
+                                        if (promedio1 > promedio7) {
+                                            System.out.println("Gano el computador");
+                                            JLabel res = new JLabel("Gano el computador");
+
+
+                                            puntajeCompu[0] += 50;
+                                            System.out.println(puntajeCompu[0]);
+                                            puntajeComputador.setText("Puntaje del Computador: " + Arrays.toString(puntajeCompu));
+                                            panel.add(puntajeComputador);
+
+                                            res.setHorizontalAlignment(SwingConstants.CENTER);
+                                            res.setOpaque(true);
+                                            res.setBackground(Color.BLUE);
+                                            res.setPreferredSize(dimensionLabel);
+
+                                            panel.add(res);
+                                        } else {
+                                            System.out.println("Gano la carta del jugador");
+                                            JLabel res = new JLabel("Gano la carta del jugador");
+
+
+                                            puntajeJug[0] += 50;
+                                            System.out.println(puntajeJug[0]);
+                                            puntajeJugador.setText("Puntaje del Jugador: " + Arrays.toString(puntajeJug));
+
+                                            panel.add(puntajeJugador);
+
+                                            res.setHorizontalAlignment(SwingConstants.CENTER);
+                                            res.setOpaque(true);
+                                            res.setBackground(Color.RED);
+                                            res.setPreferredSize(dimensionLabel);
+
+                                            panel.add(res);
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                        timer.start();
+                    }
+                });
                 panel.add(cartaJugador7);
                 cartaJugador7.setVisible(true);
                 cartaJugador7.setPreferredSize(nuevoTamanio);
@@ -719,7 +716,7 @@ public class JuegoCartas extends JFrame{
         panel.add(fusionar);
         panel.add(tempor);
 
-        panel.add(panelBotonesJugador, BorderLayout.SOUTH);
+        panel.add(panelBotonesJugador, BorderLayout.NORTH);
         getContentPane().add(panel, BorderLayout.CENTER);
     }
 
