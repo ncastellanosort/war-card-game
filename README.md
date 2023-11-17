@@ -10,4 +10,4 @@
 
 
 
-* __In process__ ⛏️
+* Abstract classes, interfaces, SOLID principles and the pillars of object oriented programming were used 💪.
